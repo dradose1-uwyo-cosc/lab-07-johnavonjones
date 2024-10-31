@@ -1,12 +1,7 @@
-# [Name]
-## [Assignment #]
-## [Submission date: MM/DD/YY]
+# Johnavon Jones
+## [Lab 7]
+## [Submission date: 10/31/24]
 ## Worked with/sources 
-* example
-* example
-* example
-* example
-## Project Quirks/ Things that don't work
-* example
-* example
-* example
+* [.split()](https://www.w3schools.com/python/ref_string_split.asp)
+* [.replace()](https://flexiple.com/python/python-replace-character-in-string)
+* Ryder Downey

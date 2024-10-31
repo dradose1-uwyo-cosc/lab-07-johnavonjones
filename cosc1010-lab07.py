@@ -1,24 +1,27 @@
-# Your Name Here
+# Johnavon Jones
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
-# Sources, people worked with, help given to: 
-# your
-# comments
-# here
+# Submission Date: 10/31/2024
+# Lab 07
+# Lab Section: 12
+# Sources, people worked with, help given to:https://www.w3schools.com/python/ref_string_split.asp, https://flexiple.com/python/python-replace-character-in-string, Ryder Downey
 
-
-# Prompt the user for an upper bound 
+# Prompt the user for an upper bound
 # Write a while loop that gives the factorial of that upper bound
 # This will need to be a positive number
 # For this you will need to check to ensure that the user entered a number
     # To do so you can use the methods `.isdigit()` or `.isnumeric()`
     # If a user did not enter a number output a statement saying so
+
 # You will continue to prompt the user until a proper integer value is entered
-
+upper_bound = input("Input a number and I will calculate the factorial!:") 
 factorial = 1
+while not upper_bound.isnumeric():
+    print("You didn't enter a number!")
+    upper_bound = input("Input a upper bound.") 
+upper_bound = int(upper_bound)
 
+for i in range(1, upper_bound + 1):
+        factorial *= i
 print(f"The result of the factorial based on the given bound is {factorial}")
 
 print("*"*75)
@@ -36,11 +39,18 @@ print("*"*75)
     # I recommend checking out: https://www.w3schools.com/python/ref_string_replace.asp to figure out how one may remove a character from a string
 # All this together means you will have an intensive while loop that includes multiple if statements, likely with some nesting 
 # The sum should start at 0 
-
-num_sum = 0 
-
+exit = False
+leave_string = "exit"
+num_sum = 0
+while not exit:
+    number = input("Input a number and I will add it together (Type exit to get your total):")
+    if number.lower() == leave_string:
+        exit = True
+    elif number[0] == "-" or number[1:].isnumeric():
+        num_sum += int(number)
+    else:
+        print("You typed something that wasn't a number!")
 print(f"Your final sum is {num_sum}")
-
 print("*"*75)
 # Now you will be creating a two operand calculator
 # It will support the following operators: +,-,/,*,% 
@@ -58,5 +68,38 @@ print("*"*75)
     # So, it should function the same for `5 + 6` as `5+6`
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
+leave = False
+leave_string = "exit"
+while not leave:
+    math_problem = input("Enter a problem with a sign(+,-,*,/,%)(Type exit to stop):")
+    math_problem = math_problem.replace(" ", "")
+    if math_problem.lower() == leave_string:
+        leave = True
+    elif "+" in math_problem:
+        math_problem = math_problem.split("+")
+        solution = int(math_problem[0]) + int(math_problem[1])
+        print(f"The two numbers added together is {solution}")
+    elif "-" in math_problem:
+        math_problem = math_problem.split("-")
+        solution = int(math_problem[0]) - int(math_problem[1])  
+        print(f"The two numbers subtracted is {solution}")  
+    elif "*" in math_problem:
+        math_problem = math_problem.split("*")
+        solution = int(math_problem[0]) * int(math_problem[1])
+        print(f"The two numbers multiplied is {solution}") 
+    elif "/" in math_problem:
+        math_problem = math_problem.split("/")
+        if int(math_problem[1]) == 0:
+            print("Error: You can't divide by 0!")
+        else:
+            solution = int(math_problem[0]) / int(math_problem[1])
+            print(f"The two numbers divided is {solution}") 
+    elif "%" in math_problem:
+        math_problem = math_problem.split("%")
+        solution = int(math_problem[0]) % int(math_problem[1])
+        print(f"The remainder of the two numbers divided is {solution}")
+    else:
+        print("You entered something that wasn't a number!")
+        
 
         
